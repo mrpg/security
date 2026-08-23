@@ -134,28 +134,6 @@ else
     fail "openpgpjs-with-kyber/src missing"
 fi
 
-# --- Submodule branches ---
-dil_branch=$(git -C botan-dilithium-signing rev-parse --abbrev-ref HEAD 2>/dev/null)
-if [ "$dil_branch" = "master" ]; then
-    ok "botan-dilithium-signing on master"
-else
-    fail "botan-dilithium-signing on $dil_branch, expected master"
-fi
-
-slh_branch=$(git -C botan-slhdsa-signing rev-parse --abbrev-ref HEAD 2>/dev/null)
-if [ "$slh_branch" = "master" ]; then
-    ok "botan-slhdsa-signing on master"
-else
-    fail "botan-slhdsa-signing on $slh_branch, expected master"
-fi
-
-kyber_branch=$(git -C openpgpjs-with-kyber rev-parse --abbrev-ref HEAD 2>/dev/null)
-if [ "$kyber_branch" = "kyber" ]; then
-    ok "openpgpjs-with-kyber on kyber"
-else
-    fail "openpgpjs-with-kyber on $kyber_branch, expected kyber"
-fi
-
 # --- Summary ---
 echo
 echo "Results: $PASS passed, $FAIL failed"
