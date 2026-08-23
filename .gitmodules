@@ -1,0 +1,9 @@
+[submodule "botan-slhdsa-signing"]
+	path = botan-slhdsa-signing
+	url = https://github.com/mrpg/botan-slhdsa-signing.git
+[submodule "botan-dilithium-signing"]
+	path = botan-dilithium-signing
+	url = https://github.com/mrpg/botan-dilithium-signing.git
+[submodule "openpgpjs-with-kyber"]
+	path = openpgpjs-with-kyber
+	url = https://github.com/mrpg/openpgpjs-with-kyber.git
