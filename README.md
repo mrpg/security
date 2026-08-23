@@ -32,6 +32,7 @@ The tool directories are Git submodules.
 | `botan-slhdsa-signing/` | Botan scripts to generate, store, sign with, and verify SLH-DSA keys. |
 | `botan-dilithium-signing/` | Equivalent Botan workflow for the Dilithium key. |
 | `openpgpjs-with-kyber/` | OpenPGP.js fork with Kyber support, used for browser-based message encryption. |
+| `check.sh` | Checks prerequisites, file integrity, GPG and Botan signatures, and submodule state. |
 
 ## License
 
