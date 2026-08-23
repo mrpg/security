@@ -25,9 +25,9 @@ These keys are for detached file signatures, not encryption.
 
 ## Tools
 
-The tool directories are Git submodules.
+The tool _directories_ are Git submodules.
 
-| Directory | Purpose |
+| Directory/file | Purpose |
 | --- | --- |
 | `botan-slhdsa-signing/` | Botan scripts to generate, store, sign with, and verify SLH-DSA keys. |
 | `botan-dilithium-signing/` | Equivalent Botan workflow for the Dilithium key. |
