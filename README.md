@@ -29,7 +29,7 @@ These keys are for detached file signatures, not encryption.
 | --- | --- |
 | `botan-slhdsa-signing/` | Botan scripts to generate, store, sign with, and verify SLH-DSA keys. Submodule. |
 | `botan-dilithium-signing/` | Equivalent Botan workflow for the Dilithium key. Submodule. |
-| `openpgpjs-with-kyber/` | OpenPGP.js fork with Kyber support, used for browser-based message encryption. Submodule. |
+| `openpgpjs/` | OpenPGP.js, used for browser-based message encryption. Submodule. |
 | `check.sh` | Checks prerequisites, file integrity, GPG and Botan signatures, and submodule state. |
 
 ## License
