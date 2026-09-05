@@ -10,8 +10,8 @@ Key ID `0x1636BA9B`. Fingerprint `A09A92FC5015EE861A7098511999861C1636BA9B`.
 
 | File | Contents |
 | --- | --- |
-| [`1636BA9B.asc`](1636BA9B.asc) | Primary public key: Ed25519 signing, with Cv25519 and Kyber encryption subkeys. |
-| [`1636BA9B-compat.asc`](1636BA9B-compat.asc) | Compatibility copy without the Kyber subkey, for older GnuPG versions. |
+| [`1636BA9B.asc`](1636BA9B.asc) | Primary public key: Ed25519 signing, with Cv25519 and Kyber/ML-KEM encryption subkeys. |
+| [`1636BA9B-compat.asc`](1636BA9B-compat.asc) | Compatibility copy without the Kyber/ML-KEM subkeys, for older GnuPG versions. |
 | [`1636BA9B.bin`](1636BA9B.bin) | Binary form of the primary public key. |
 
 ## Post-quantum signatures
