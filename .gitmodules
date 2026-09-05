@@ -4,3 +4,6 @@
 [submodule "botan-dilithium-signing"]
 	path = botan-dilithium-signing
 	url = https://github.com/mrpg/botan-dilithium-signing.git
+[submodule "openpgpjs"]
+	path = openpgpjs
+	url = https://github.com/openpgpjs/openpgpjs.git
