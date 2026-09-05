@@ -128,10 +128,10 @@ for sub in botan-dilithium-signing botan-slhdsa-signing; do
         fi
     done
 done
-if [ -d openpgpjs-with-kyber/src ]; then
-    ok "openpgpjs-with-kyber/src present"
+if [ -d openpgpjs/src ]; then
+    ok "openpgpjs/src present"
 else
-    fail "openpgpjs-with-kyber/src missing"
+    fail "openpgpjs/src missing"
 fi
 
 # --- Summary ---
