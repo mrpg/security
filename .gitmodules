@@ -2,7 +2,7 @@
 	path = botan-slhdsa-signing
 	url = https://github.com/mrpg/botan-slhdsa-signing.git
 [submodule "botan-dilithium-signing"]
-	path = botan-dilithium-signing
+	path = archive/botan-dilithium-signing
 	url = https://github.com/mrpg/botan-dilithium-signing.git
 [submodule "openpgpjs"]
 	path = openpgpjs

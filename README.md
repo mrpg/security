@@ -11,8 +11,8 @@ Key ID `0x1636BA9B`. Fingerprint `A09A92FC5015EE861A7098511999861C1636BA9B`.
 | File | Contents |
 | --- | --- |
 | [`1636BA9B.asc`](1636BA9B.asc) | Primary public key: Ed25519 signing, with Cv25519 and Kyber/ML-KEM encryption subkeys. |
-| [`1636BA9B-compat.asc`](1636BA9B-compat.asc) | Compatibility copy without the Kyber/ML-KEM subkeys, for older GnuPG versions. |
 | [`1636BA9B.bin`](1636BA9B.bin) | Binary form of the primary public key. |
+| [`archive/1636BA9B-compat.asc`](archive/1636BA9B-compat.asc) | Compatibility copy without the Kyber/ML-KEM subkeys, for older GnuPG versions. |
 
 ## Future OpenPGP v6 key
 
@@ -26,21 +26,31 @@ Few OpenPGP implementations support this key yet. GnuPG cannot import it: versio
 
 ## Post-quantum signatures
 
-These keys are for detached file signatures, not encryption.
+This key is for detached file signatures, not encryption.
 
-| Scheme | Status | Public key | Authentication |
-| --- | --- | --- | --- |
-| SLH-DSA-SHAKE-256s | **Preferred** | [`slhdsa-2026.pem`](slhdsa-2026.pem) | GnuPG signature: [`slhdsa-2026.pem.sig`](slhdsa-2026.pem.sig)<br>Signature over the primary GnuPG key: [`1636BA9B.asc.botansigh`](1636BA9B.asc.botansigh) |
-| Dilithium-8x7-r3 | Retained for compatibility | [`dilithium-2026.pem`](dilithium-2026.pem) | GnuPG signature: [`dilithium-2026.pem.sig`](dilithium-2026.pem.sig)<br>Signature over the primary GnuPG key: [`1636BA9B.asc.botansig`](1636BA9B.asc.botansig) |
+| Scheme | Public key | Authentication |
+| --- | --- | --- |
+| SLH-DSA-SHAKE-256s | [`slhdsa-2026.pem`](slhdsa-2026.pem) | GnuPG signature: [`slhdsa-2026.pem.sig`](slhdsa-2026.pem.sig)<br>Signature over the primary GnuPG key: [`1636BA9B.asc.botansigh`](1636BA9B.asc.botansigh) |
 
 ## Tools
 
 | Directory/file | Purpose |
 | --- | --- |
 | `botan-slhdsa-signing/` | Botan scripts to generate, store, sign with, and verify SLH-DSA keys. Submodule. |
-| `botan-dilithium-signing/` | Equivalent Botan workflow for the Dilithium key. Submodule. |
 | `openpgpjs/` | OpenPGP.js, used for browser-based message encryption. Submodule. |
-| `check.sh` | Checks prerequisites, file integrity, GPG and Botan signatures, and submodule state. |
+| `check.sh` | Checks prerequisites, file integrity, GPG and Botan signatures, and submodule state, including the archived files. |
+
+## Archive
+
+[`archive/`](archive/) holds older material that I keep for reference and for verifying existing signatures. If possible, please use the keys and tools above instead.
+
+| File/directory | Contents |
+| --- | --- |
+| [`archive/1636BA9B-compat.asc`](archive/1636BA9B-compat.asc) | Compatibility copy of `0x1636BA9B` without the Kyber/ML-KEM subkeys, for older GnuPG versions. |
+| [`archive/dilithium-2026.pem`](archive/dilithium-2026.pem) | Dilithium-8x7-r3 (round 3) public key for detached file signatures. Superseded by SLH-DSA. |
+| [`archive/dilithium-2026.pem.sig`](archive/dilithium-2026.pem.sig) | GnuPG signature over the Dilithium public key. |
+| [`archive/1636BA9B.asc.botansig`](archive/1636BA9B.asc.botansig) | Dilithium signature over the primary GnuPG key. |
+| `archive/botan-dilithium-signing/` | Botan scripts to generate, store, sign with, and verify Dilithium keys. Submodule. |
 
 ## License
 

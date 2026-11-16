@@ -24,10 +24,10 @@ done || { fail "submodules not fully initialized (run git submodule update --ini
 ok "all submodules initialized"
 
 # --- Required files exist ---
-for f in 1636BA9B.asc 1636BA9B-compat.asc 1636BA9B.bin \
-         1636BA9B.asc.botansig 1636BA9B.asc.botansigh \
-         dilithium-2026.pem dilithium-2026.pem.sig \
-         slhdsa-2026.pem slhdsa-2026.pem.sig; do
+for f in 1636BA9B.asc 1636BA9B.bin 1636BA9B.asc.botansigh \
+         slhdsa-2026.pem slhdsa-2026.pem.sig \
+         archive/1636BA9B-compat.asc archive/1636BA9B.asc.botansig \
+         archive/dilithium-2026.pem archive/dilithium-2026.pem.sig; do
     if [ -s "$f" ]; then
         ok "$f exists and non-empty"
     else
@@ -54,7 +54,7 @@ else
 fi
 
 # --- Compat key: same primary, no Kyber subkey ---
-compat_fp=$(gpg --with-colons --import-options show-only --import 1636BA9B-compat.asc 2>/dev/null \
+compat_fp=$(gpg --with-colons --import-options show-only --import archive/1636BA9B-compat.asc 2>/dev/null \
             | awk -F: '/^fpr:/{print $10; exit}')
 if [ "$compat_fp" = "$FP" ]; then
     ok "compat key same primary fingerprint"
@@ -62,7 +62,7 @@ else
     fail "compat key fingerprint mismatch"
 fi
 
-compat_subs=$(gpg --with-colons --import-options show-only --import 1636BA9B-compat.asc 2>/dev/null \
+compat_subs=$(gpg --with-colons --import-options show-only --import archive/1636BA9B-compat.asc 2>/dev/null \
               | grep -c '^sub:')
 if [ "$compat_subs" -eq 1 ]; then
     ok "compat key has 1 subkey (no Kyber)"
@@ -78,7 +78,7 @@ else
 fi
 
 # --- PEM public keys have valid structure ---
-for pem in dilithium-2026.pem slhdsa-2026.pem; do
+for pem in archive/dilithium-2026.pem slhdsa-2026.pem; do
     if head -1 "$pem" | grep -q "BEGIN PUBLIC KEY"; then
         ok "$pem has PEM public key header"
     else
@@ -91,7 +91,7 @@ _tmpdir=$(mktemp -d)
 trap 'rm -rf "$_tmpdir"' EXIT
 gpg --homedir "$_tmpdir" --no-autostart --import 1636BA9B.asc 2>/dev/null
 
-for pem in dilithium-2026.pem slhdsa-2026.pem; do
+for pem in archive/dilithium-2026.pem slhdsa-2026.pem; do
     sig="${pem}.sig"
     signer=$(gpg --homedir "$_tmpdir" --no-autostart \
              --status-fd 1 --verify "$sig" "$pem" 2>/dev/null \
@@ -104,7 +104,7 @@ for pem in dilithium-2026.pem slhdsa-2026.pem; do
 done
 
 # --- Botan cross-signatures: PQ keys signed the GnuPG key ---
-if botan verify --hash="" dilithium-2026.pem 1636BA9B.asc 1636BA9B.asc.botansig 2>/dev/null \
+if botan verify --hash="" archive/dilithium-2026.pem 1636BA9B.asc archive/1636BA9B.asc.botansig 2>/dev/null \
     | grep -q "Signature is valid"; then
     ok "Dilithium signature over 1636BA9B.asc valid"
 else
@@ -119,7 +119,7 @@ else
 fi
 
 # --- Submodule scripts exist and are executable ---
-for sub in botan-dilithium-signing botan-slhdsa-signing; do
+for sub in archive/botan-dilithium-signing botan-slhdsa-signing; do
     for script in genkey.sh sign.sh verify.sh test.sh; do
         if [ -f "$sub/$script" ]; then
             ok "$sub/$script exists"
