@@ -1,0 +1,16 @@
+name: check
+
+on: [push, pull_request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    container: debian:trixie
+    steps:
+      - run: apt-get update && apt-get install -y --no-install-recommends botan ca-certificates git gnupg
+      - uses: actions/checkout@v5
+        with:
+          submodules: true
+      - run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          ./check.sh
