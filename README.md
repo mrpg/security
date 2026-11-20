@@ -16,13 +16,11 @@ Key ID `0x1636BA9B`. Fingerprint `A09A92FC5015EE861A7098511999861C1636BA9B`.
 
 ## Future OpenPGP v6 key
 
-Fingerprint `C1E8235A94BE2427043C08EEF79F9481E44A587ACC5B0D2631BE34C3A8B949BC`. This key is not yet in use; please keep using `0x1636BA9B` for now.
+Fingerprint `C1E8235A94BE2427043C08EEF79F9481E44A587ACC5B0D2631BE34C3A8B949BC`. I am currently experimenting with this key; most users should keep using `0x1636BA9B` for now.
 
 | File | Contents |
 | --- | --- |
 | [`future/C1E8235A94BE2427.asc`](future/C1E8235A94BE2427.asc) | RFC 9580 v6 public key with RFC 9980 post-quantum hybrid algorithms: ML-DSA-87+Ed448 primary key (certification only), ML-DSA-87+Ed448 signing and authentication subkeys, and an ML-KEM-1024+X448 encryption subkey. The user ID is certified by `0x1636BA9B`. |
-
-Few OpenPGP implementations support this key yet. GnuPG cannot import it: version 2.4.7 cannot parse it, and version 2.5.24 can parse it but not import it. It works with [Sequoia](https://sequoia-pgp.org/) built with its [OpenSSL backend](https://sequoia-pgp.org/blog/2025/11/15/202511-post-quantum-cryptography/), [rPGP](https://github.com/rpgp/rpgp) with its `pqc` feature, [GopenPGP](https://github.com/ProtonMail/gopenpgp), and software based on [Bouncy Castle](https://www.bouncycastle.org/), such as [PGPony](https://f-droid.org/packages/com.pgpony.android/).
 
 ## Post-quantum signatures
 
